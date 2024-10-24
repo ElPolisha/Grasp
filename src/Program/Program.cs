@@ -1,10 +1,4 @@
-﻿//-------------------------------------------------------------------------
-// <copyright file="Program.cs" company="Universidad Católica del Uruguay">
-// Copyright (c) Programación II. Derechos reservados.
-// </copyright>
-//-------------------------------------------------------------------------
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,7 +7,6 @@ namespace Full_GRASP_And_SOLID
     public class Program
     {
         private static List<Product> productCatalog = new List<Product>();
-
         private static List<Equipment> equipmentCatalog = new List<Equipment>();
 
         public static void Main(string[] args)
@@ -28,9 +21,9 @@ namespace Full_GRASP_And_SOLID
 
             IPrinter printer;
             printer = new ConsolePrinter();
-            printer.PrintRecipe(recipe);
+            printer.PrintRecipe(recipe); // `recipe` es IRecipe
             printer = new FilePrinter();
-            printer.PrintRecipe(recipe);
+            printer.PrintRecipe(recipe); // `recipe` sigue siendo IRecipe
         }
 
         private static void PopulateCatalogs()
@@ -38,7 +31,6 @@ namespace Full_GRASP_And_SOLID
             AddProductToCatalog("Café", 100);
             AddProductToCatalog("Leche", 200);
             AddProductToCatalog("Café con leche", 300);
-
             AddEquipmentToCatalog("Cafetera", 1000);
             AddEquipmentToCatalog("Hervidor", 2000);
         }
